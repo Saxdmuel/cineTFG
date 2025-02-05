@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navegacion"
+    app:startDestination="@id/login">
+
+    <fragment
+        android:id="@+id/inicio"
+        android:name="com.example.cine.Inicio"
+        android:label="fragment_inicio"
+        tools:layout="@layout/fragment_inicio" >
+        <action
+            android:id="@+id/action_inicio_to_snack"
+            app:destination="@id/snack" />
+        <action
+            android:id="@+id/action_inicio_to_sala"
+            app:destination="@id/sala" />
+        <action
+            android:id="@+id/action_inicio_to_registro"
+            app:destination="@id/registro" />
+        <action
+            android:id="@+id/action_inicio_to_pelicula"
+            app:destination="@id/pelicula" />
+    </fragment>
+    <fragment
+        android:id="@+id/pelicula"
+        android:name="com.example.cine.Pelicula"
+        android:label="fragment_pelicula"
+        tools:layout="@layout/fragment_pelicula" >
+        <action
+            android:id="@+id/action_pelicula_to_inicio"
+            app:destination="@id/inicio" />
+        <action
+            android:id="@+id/action_pelicula_to_registro"
+            app:destination="@id/registro" />
+        <action
+            android:id="@+id/action_pelicula_to_sala"
+            app:destination="@id/sala" />
+        <action
+            android:id="@+id/action_pelicula_to_snack"
+            app:destination="@id/snack" />
+        <action
+            android:id="@+id/action_pelicula_to_carrito"
+            app:destination="@id/carrito" />
+    </fragment>
+    <fragment
+        android:id="@+id/registro"
+        android:name="com.example.cine.Registro"
+        android:label="fragment_registro"
+        tools:layout="@layout/fragment_registro" >
+        <action
+            android:id="@+id/action_registro_to_sala"
+            app:destination="@id/sala" />
+        <action
+            android:id="@+id/action_registro_to_pelicula"
+            app:destination="@id/pelicula" />
+        <action
+            android:id="@+id/action_registro_to_inicio"
+            app:destination="@id/inicio" />
+        <action
+            android:id="@+id/action_registro_to_snack"
+            app:destination="@id/snack" />
+    </fragment>
+    <fragment
+        android:id="@+id/sala"
+        android:name="com.example.cine.Sala"
+        android:label="fragment_sala"
+        tools:layout="@layout/fragment_sala" >
+        <action
+            android:id="@+id/action_sala_to_snack"
+            app:destination="@id/snack" />
+        <action
+            android:id="@+id/action_sala_to_registro"
+            app:destination="@id/registro" />
+        <action
+            android:id="@+id/action_sala_to_pelicula"
+            app:destination="@id/pelicula" />
+    </fragment>
+    <fragment
+        android:id="@+id/snack"
+        android:name="com.example.cine.Snack"
+        android:label="fragment_snack"
+        tools:layout="@layout/fragment_snack" >
+        <action
+            android:id="@+id/action_snack_to_sala"
+            app:destination="@id/sala" />
+        <action
+            android:id="@+id/action_snack_to_registro"
+            app:destination="@id/registro" />
+        <action
+            android:id="@+id/action_snack_to_pelicula"
+            app:destination="@id/pelicula" />
+        <action
+            android:id="@+id/action_snack_to_inicio"
+            app:destination="@id/inicio" />
+        <action
+            android:id="@+id/action_snack_to_carrito"
+            app:destination="@id/carrito" />
+    </fragment>
+    <fragment
+        android:id="@+id/login"
+        android:name="com.example.cine.Login"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_login_to_inicio"
+            app:destination="@id/inicio" />
+        <action
+            android:id="@+id/action_login_to_registro"
+            app:destination="@id/registro" />
+    </fragment>
+    <fragment
+        android:id="@+id/carrito"
+        android:name="com.example.cine.carrito"
+        android:label="fragment_carrito"
+        tools:layout="@layout/fragment_carrito" >
+        <action
+            android:id="@+id/action_carrito_to_pelicula"
+            app:destination="@id/pelicula" />
+        <action
+            android:id="@+id/action_carrito_to_snack"
+            app:destination="@id/snack" />
+    </fragment>
+</navigation>

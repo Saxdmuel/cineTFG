@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo"
+    tools:context=".carrito">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/TVinicio"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Inicio"
+            android:textColor="#B8860B"
+            android:autoSizeTextType="uniform"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.9"
+            app:layout_constraintStart_toEndOf="@+id/txtSnackCarrito"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.048"
+            app:layout_constraintWidth_percent="0.3" />
+
+        <TextView
+            android:id="@+id/txtSnackCarrito"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Snack bar"
+            android:textColor="#B8860B"
+            android:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.105"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.048"
+            app:layout_constraintWidth_percent="0.3"/>
+
+        <LinearLayout
+            android:id="@+id/lyCarrito"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHeight_percent="0.6"
+            app:layout_constraintWidth_percent="0.9"></LinearLayout>
+
+        <Button
+            android:id="@+id/btnComprarCarrito"
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:backgroundTint="#2C3E50"
+            android:fontFamily="@font/bebas_neue"
+            android:text="Comprar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.743"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lyCarrito"
+            app:layout_constraintVertical_bias="0.494"
+            app:layout_constraintWidth_percent="0.3" />
+
+        <Button
+            android:id="@+id/btnBorrarCarrito"
+            android:layout_width="0dp"
+            android:layout_height="53dp"
+            android:backgroundTint="#2C3E50"
+            android:fontFamily="@font/bebas_neue"
+            android:text="Borrar Carrito"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btnComprarCarrito"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lyCarrito"
+            app:layout_constraintWidth_percent="0.3" />
+
+        <TextView
+            android:id="@+id/tvTotal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Total:"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/btnComprarCarrito"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.799"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lyCarrito"
+            app:layout_constraintVertical_bias="0.489"
+            app:layout_constraintWidth_percent="0.1" />
+
+        <TextView
+            android:id="@+id/tvSumatorio"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/btnComprarCarrito"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvTotal"
+            app:layout_constraintTop_toBottomOf="@+id/lyCarrito"
+            app:layout_constraintWidth_percent="0.1"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

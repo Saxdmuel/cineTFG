@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo"
+    tools:context=".Snack">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/TVinicio"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Inicio"
+            android:textColor="#B8860B"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.042"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.068"
+            app:layout_constraintWidth_percent="0.3"/>
+
+        <ImageView
+            android:id="@+id/IVcarrito"
+            android:layout_width="48dp"
+            android:layout_height="33dp"
+            android:src="@drawable/carrito"
+            app:layout_constraintBottom_toTopOf="@+id/RecyclerView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.92"
+            app:layout_constraintStart_toEndOf="@+id/TVinicio"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.626" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/RecyclerView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.306"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/TVinicio"
+            app:layout_constraintVertical_bias="0.135"
+            app:layout_constraintWidth_percent="0.9"
+            app:layout_constraintHeight_percent="0.6"
+            />
+
+        <Button
+            android:id="@+id/btnComprarSnacks"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:backgroundTint="#2C3E50"
+            android:fontFamily="@font/bebas_neue"
+            android:text="Comprar"
+            android:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.8"
+            app:layout_constraintVertical_bias="0.4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/RecyclerView"
+            app:layout_constraintWidth_percent="0.30"
+            app:layout_constraintHeight_percent="0.06"/>
+
+        <Button
+            android:id="@+id/btnCrearSnack"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:backgroundTint="#2C3E50"
+            android:fontFamily="@font/bebas_neue"
+            android:text="Añadir snack"
+            android:visibility="invisible"
+            android:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/RecyclerView"
+            app:layout_constraintVertical_bias="0.4"
+            app:layout_constraintWidth_percent="0.3"
+            app:layout_constraintHeight_percent="0.06"/>
+
+        <Button
+            android:id="@+id/btnBorrarSnack"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:backgroundTint="#2C3E50"
+            android:fontFamily="@font/bebas_neue"
+            android:text="Borrar snack"
+            android:visibility="invisible"
+            android:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnCrearSnack"
+            app:layout_constraintVertical_bias="0.4"
+            app:layout_constraintWidth_percent="0.3"
+            app:layout_constraintHeight_percent="0.06"/>
+
+        <Button
+            android:id="@+id/btnCambiarSnack"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:backgroundTint="#2C3E50"
+            android:fontFamily="@font/bebas_neue"
+            android:text="Cambiar precio"
+            android:visibility="invisible"
+            android:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.8"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnComprarSnacks"
+            app:layout_constraintVertical_bias="0.4"
+            app:layout_constraintWidth_percent="0.3"
+            app:layout_constraintHeight_percent="0.06"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

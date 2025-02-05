@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FragmentCrearPelicula">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="383dp"
+            android:layout_height="408dp"
+            android:layout_marginStart="27dp"
+            android:layout_marginTop="44dp"
+            android:layout_marginEnd="27dp"
+            android:layout_marginBottom="45dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.576"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.145">
+
+            <EditText
+                android:id="@+id/edtTitulo"
+                android:layout_width="match_parent"
+                android:layout_height="78dp"
+                android:ems="10"
+                android:hint="Título"
+                android:inputType="text" />
+
+            <EditText
+                android:id="@+id/edtYear"
+                android:layout_width="match_parent"
+                android:layout_height="78dp"
+                android:ems="10"
+                android:hint="Year"
+                android:inputType="text" />
+
+            <EditText
+                android:id="@+id/edtDescripción"
+                android:layout_width="match_parent"
+                android:layout_height="78dp"
+                android:ems="10"
+                android:hint="Descripción"
+                android:inputType="text" />
+
+            <EditText
+                android:id="@+id/edtDuración"
+                android:layout_width="match_parent"
+                android:layout_height="78dp"
+                android:ems="10"
+                android:hint="Duración"
+                android:inputType="text" />
+
+            <EditText
+                android:id="@+id/edtSala"
+                android:layout_width="match_parent"
+                android:layout_height="78dp"
+                android:ems="10"
+                android:hint="Sala"
+                android:inputType="text" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvEncabezado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Crear Película"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btnAceptarPelicula"
+            android:layout_width="119dp"
+            android:layout_height="52dp"
+            android:text="Aceptar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.893"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            app:layout_constraintVertical_bias="0.616" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo"
+    tools:context=".Registro">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/txtUsuario"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Usuario"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBaseline_toBaselineOf="@id/edtUsuario"
+            app:layout_constraintWidth_percent="0.3" />
+
+        <TextView
+            android:id="@+id/txtPass"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Contraseña"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtUsuario"
+            app:layout_constraintBaseline_toBaselineOf="@id/edtPass"
+            app:layout_constraintWidth_percent="0.3"
+            />
+
+        <TextView
+            android:id="@+id/txtRepPass"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Repetir contraseña"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtPass"
+            app:layout_constraintBaseline_toBaselineOf="@id/edtRepPass"
+            app:layout_constraintWidth_percent="0.3"/>
+
+        <TextView
+            android:id="@+id/txtRepEmail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Repetir e-mail"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtEmail2"
+            app:layout_constraintBaseline_toBaselineOf="@id/edtRepEmail"
+            app:layout_constraintWidth_percent="0.3"
+            />
+
+        <TextView
+            android:id="@+id/txtEmail2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="E_mail"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtRepPass"
+            app:layout_constraintBaseline_toBaselineOf="@id/edtEmail"
+            app:layout_constraintWidth_percent="0.3" />
+
+        <EditText
+            android:id="@+id/edtPass"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Contaseña"
+            android:inputType="textPassword"
+            android:textColorHint="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/txtPass"
+            app:layout_constraintTop_toBottomOf="@+id/edtUsuario"
+            app:layout_constraintVertical_bias="0.02"
+            app:layout_constraintWidth_percent="0.55" />
+
+        <EditText
+            android:id="@+id/edtRepPass"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Repite la contraseña"
+            android:inputType="textPassword"
+            android:textColorHint="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/txtRepPass"
+            app:layout_constraintTop_toBottomOf="@+id/edtPass"
+            app:layout_constraintVertical_bias="0.02"
+            app:layout_constraintWidth_percent="0.55" />
+
+        <EditText
+            android:id="@+id/edtUsuario"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Usuario"
+            android:inputType="text"
+            android:textColorHint="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/txtUsuario"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.27"
+            app:layout_constraintWidth_percent="0.55" />
+
+        <EditText
+            android:id="@+id/edtEmail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="E-mail"
+            android:inputType="textEmailAddress"
+            android:textColorHint="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/txtEmail2"
+            app:layout_constraintTop_toBottomOf="@+id/edtRepPass"
+            app:layout_constraintVertical_bias="0.02"
+            app:layout_constraintWidth_percent="0.55" />
+
+        <EditText
+            android:id="@+id/edtRepEmail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Repite el e-mail"
+            android:inputType="textEmailAddress"
+            android:textColorHint="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/txtRepEmail"
+            app:layout_constraintTop_toBottomOf="@+id/edtEmail"
+            app:layout_constraintVertical_bias="0.02"
+            app:layout_constraintWidth_percent="0.55" />
+
+        <Button
+            android:id="@+id/btnAceptarRegistro"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:backgroundTint="#2C3E50"
+            android:fontFamily="@font/bebas_neue"
+            android:text="Registro"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/edtEmail"
+            app:layout_constraintHeight_percent="0.065"
+            app:layout_constraintHorizontal_bias="0.809"
+            app:layout_constraintStart_toEndOf="@+id/btnCancelarRegistro"
+            app:layout_constraintTop_toBottomOf="@+id/edtRepEmail"
+            app:layout_constraintVertical_bias="0.644"
+            app:layout_constraintWidth_percent="0.3" />
+
+        <Button
+            android:id="@+id/btnCancelarRegistro"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:backgroundTint="#2C3E50"
+            android:fontFamily="@font/bebas_neue"
+            android:text="Cancelar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/edtEmail"
+            app:layout_constraintHeight_percent="0.065"
+            app:layout_constraintHorizontal_bias="0.158"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtRepEmail"
+            app:layout_constraintBaseline_toBaselineOf="@id/btnAceptarRegistro"
+            app:layout_constraintWidth_percent="0.3" />
+
+        <TextView
+            android:id="@+id/txtLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="login"
+            android:textColor="#B8860B"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.045"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.094" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

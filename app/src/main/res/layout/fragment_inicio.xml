@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo"
+    tools:context=".Inicio">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/contraint"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/txtSnackCarrito"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/cinzel_bold"
+            android:text="Snack bar"
+            android:textColor="#B8860B"
+            android:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toTopOf="@+id/Linear"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.083"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.35"
+            app:layout_constraintWidth_percent="0.3" />
+
+        <LinearLayout
+            android:id="@+id/Linear"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:divider="@drawable/separador"
+            android:dividerPadding="12dip"
+            android:orientation="horizontal"
+            android:showDividers="middle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.6"
+            app:layout_constraintHorizontal_bias="0.39"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/IVcarrito"
+            app:layout_constraintVertical_bias="0.5"
+            app:layout_constraintWidth_percent="0.9" />
+
+
+        <Button
+            android:id="@+id/btnCrearPelicula"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#2C3E50"
+            android:fontFamily="@font/bebas_neue"
+            android:text="Crear película"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btnBorrarPelicula"
+            app:layout_constraintHeight_percent="0.065"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Linear"
+            app:layout_constraintVertical_bias="0.4"
+            app:layout_constraintWidth_percent="0.3" />
+
+        <Button
+            android:id="@+id/btnBorrarPelicula"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#2C3E50"
+            android:fontFamily="@font/bebas_neue"
+            android:text="Borrar película"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.065"
+            app:layout_constraintHorizontal_bias="0.083"
+            app:layout_constraintStart_toEndOf="@+id/btnCrearPelicula"
+            app:layout_constraintTop_toBottomOf="@+id/Linear"
+            app:layout_constraintVertical_bias="0.4"
+            app:layout_constraintWidth_percent="0.3" />
+
+        <ImageView
+            android:id="@+id/IVcarrito"
+            android:layout_width="48dp"
+            android:layout_height="33dp"
+            android:src="@drawable/carrito"
+            app:layout_constraintTop_toBottomOf="@id/TVcerrarSesion"
+            app:layout_constraintStart_toStartOf="@id/TVcerrarSesion"
+            app:layout_constraintEnd_toEndOf="@id/TVcerrarSesion"
+            app:layout_constraintHorizontal_bias="1"
+            app:layout_constraintVertical_bias="0.6"
+            />
+
+        <TextView
+            android:id="@+id/TVcerrarSesion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Cerrar sesion"
+            android:textColor="#B8860B"
+            android:textAlignment="textEnd"
+            android:autoSizeTextType="uniform"            android:layout_marginTop="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/IVcarrito"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.9"
+            app:layout_constraintStart_toEndOf="@+id/txtSnackCarrito"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.3" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

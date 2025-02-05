@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/bebas_neue</item>
+        <item>@font/cinzel_bold</item>
+        <item>@font/cinzel_semibold</item>
+        <item>@font/lato</item>
+        <item>@font/lato_bold</item>
+        <item>@font/merriweather_light</item>
+        <item>@font/oswald_light</item>
+        <item>@font/playfair_display_sc_bold</item>
+        <item>@font/playfair_display_semibold</item>
+        <item>@font/roboto</item>
+        <item>@font/roboto_serif</item>
+    </array>
+</resources>
