@@ -63,7 +63,14 @@ public class carrito extends Fragment {
                     Toast toast = Toast.makeText(getContext(), "El carro esta vacio", Toast.LENGTH_SHORT);
                     toast.show();
                 }else{
-                    Navigation.findNavController(view).navigate(R.id.inicio);
+                    try {
+                        EnviarCorreo.enviarCorreo("salmeronCine@gmail.com","kpzt hlfg isyf wwns",
+                                "saxdmuel@gmail.com","cine","prueba");
+                        Navigation.findNavController(view).navigate(R.id.inicio);
+                    }catch (Exception e){
+                        System.out.println(e.getMessage());
+                    }
+
                 }
             }
         });

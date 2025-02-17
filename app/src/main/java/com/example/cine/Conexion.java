@@ -32,13 +32,13 @@ public class Conexion{
     static ResultSet rsPeliculas;
     static ResultSet rsSnacks;
     static ResultSet rsSalas;
-    private final String ip = "45.6.48.124";
+    private final String ip = "10.0.2.2";
 
     private static Connection conexion;
     private final String baseDatos = "cine";
     private final int puerto = 5432;
     private final String usuario = "postgres";
-    private final String pass = "saxdmuel";
+    private final String pass = "Palomares.24";
     private String url = "jdbc:postgresql://%s:%d/%s";
     private static boolean estadoConexion = false;
 

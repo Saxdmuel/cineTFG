@@ -1,3 +1,5 @@
+import com.android.build.api.dsl.Packaging
+
 plugins {
     id("com.android.application")
 }
@@ -5,6 +7,12 @@ plugins {
 android {
     namespace = "com.example.cine"
     compileSdk = 34
+    packagingOptions {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+            excludes += "/META-INF/{NOTICE.md,LICENSE.md}"
+        }
+    }
 
     defaultConfig {
         applicationId = "com.example.cine"
@@ -29,6 +37,8 @@ android {
 }
 dependencies {
 
+    implementation ("com.sun.mail:android-mail:1.6.7")
+
     implementation ("com.squareup.retrofit2:converter-gson:2.4.0")
     implementation ("com.squareup.retrofit2:retrofit:2.4.0")       // abren el uso de Apis
     implementation ("com.squareup.picasso:picasso:2.71828") //sirve para caragr imagenes de internet
@@ -46,5 +56,6 @@ dependencies {
 configurations.all {
     resolutionStrategy {
         force("androidx.recyclerview:recyclerview:1.2.1")
+        force("com.sun.mail:android-mail:1.6.7")
     }
 }
