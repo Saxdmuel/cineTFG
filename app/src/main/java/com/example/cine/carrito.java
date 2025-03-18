@@ -52,6 +52,12 @@ public class carrito extends Fragment {
             textView.setText(listaArticulos.get(i));
             ly.addView(textView); //añado los textView al layout
         }
+        TextView tvInicio = view.findViewById(R.id.TVinicio);
+        TextView tvSnacks = view.findViewById(R.id.txtSnackCarrito);
+        TextView tvSumatorio = view.findViewById(R.id.tvSumatorio);
+        String total =lite.sumarPrecios(getContext())+"€"; //metodo que suma los precios de los articulos comprados
+        tvSumatorio.setText(total); //muestra el total
+
 
         Button botonComprar = view.findViewById(R.id.btnComprarCarrito);
         Button botonBorrar = view.findViewById(R.id.btnBorrarCarrito);
@@ -64,8 +70,15 @@ public class carrito extends Fragment {
                     toast.show();
                 }else{
                     try {
+                        String articulos = "";
+                        for (int i=0;i< listaArticulos.size();i++){
+
+                            articulos = articulos +"\n"+listaArticulos.get(i);
+                        }
+                        articulos= articulos+"\nTotal = "+total;
+                        String destinatario = Conexion.buscarEmail(lite.usuarioConectado(getContext()));
                         EnviarCorreo.enviarCorreo("salmeronCine@gmail.com","kpzt hlfg isyf wwns",
-                                "saxdmuel@gmail.com","cine","prueba");
+                                destinatario,"cine",articulos);
                         Navigation.findNavController(view).navigate(R.id.inicio);
                     }catch (Exception e){
                         System.out.println(e.getMessage());
@@ -92,9 +105,6 @@ public class carrito extends Fragment {
             }
         });
 
-        TextView tvInicio = view.findViewById(R.id.TVinicio);
-        TextView tvSnacks = view.findViewById(R.id.txtSnackCarrito);
-        TextView tvSumatorio = view.findViewById(R.id.tvSumatorio);
 
         //ir a inicio
         tvInicio.setOnClickListener(new View.OnClickListener() {
@@ -111,7 +121,5 @@ public class carrito extends Fragment {
             }
         });
 
-        String total =lite.sumarPrecios(getContext()); //metodo que suma los precios de los articulos comprados
-        tvSumatorio.setText(total); //muestra el total
     }
 }

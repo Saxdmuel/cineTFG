@@ -156,6 +156,22 @@ public class Conexion{
         return existe;
     }
 
+    public static String buscarEmail(String usuario) {
+        String email;
+        try {
+            String query = "Select email from usuarios where nombreusuario = ?";
+            PreparedStatement ps = conexion.prepareStatement(query);
+            ps.setString(1,usuario);
+            ResultSet resultSet = ps.executeQuery();
+            resultSet.next();
+            email = resultSet.getString(1);
+            ps.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return email;
+    }
+
     //metodo que conecta con la BBDD
     public  void conectarSql() {
 

@@ -117,20 +117,24 @@ public class SQLite extends SQLiteOpenHelper {//esta clase crea una tabla integr
     }
 
     public String sumarPrecios(Context context) {
-        SQLite lite = new SQLite(context);
-        SQLiteDatabase db = lite.getReadableDatabase();
-
-        // Ejecutar la consulta para sumar los valores
-        String sql = "SELECT SUM(precio) AS total_precio FROM carrito";
-        Cursor cursor = db.rawQuery(sql, null); //creo el cursor para moverme por los datos
-
-        // Obtener el resultado
         int totalPrecio = 0;
-        if (cursor.moveToFirst()) {
-            totalPrecio = cursor.getInt(cursor.getColumnIndexOrThrow("total_precio"));
-        }
-        cursor.close();
-        db.close();
+            SQLite lite = new SQLite(context);
+            SQLiteDatabase db = lite.getReadableDatabase();
+
+            // Ejecutar la consulta para sumar los valores
+            String sql = "SELECT precio, cantidad FROM carrito";
+            Cursor cursor = db.rawQuery(sql, null); //creo el cursor para moverme por los datos
+
+            // Obtener el resultado
+
+            while (cursor.moveToNext()) {
+                int cantidad = cursor.getInt(cursor.getColumnIndexOrThrow("cantidad"));
+                int precio = cantidad *  cursor.getInt(cursor.getColumnIndexOrThrow("precio"));
+                totalPrecio = totalPrecio + precio;
+            }
+            cursor.close();
+            db.close();
+
         return  Integer.toString(totalPrecio);
     }
 
