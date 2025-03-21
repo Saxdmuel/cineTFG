@@ -30,6 +30,7 @@ public class FragmentCrearPelicula extends AppCompatDialogFragment {
         EditText edtDescripcion = v.findViewById(R.id.edtDescripción);
         EditText edtDuracion = v.findViewById(R.id.edtDuración);
         EditText edtSala = v.findViewById(R.id.edtSala);
+        EditText edtTrailer = v.findViewById(R.id.edtTrailer);
         Button botonAceptar = v.findViewById(R.id.btnAceptarPelicula);
 
         //boton que crea la peluicula
@@ -38,7 +39,7 @@ public class FragmentCrearPelicula extends AppCompatDialogFragment {
             public void onClick(View v) {
                 try {
                     String titulo =edtTitulo.getText().toString();String year =edtYear.getText().toString(); String descripcion = edtDescripcion.getText().toString();
-                    String duracion = edtDuracion.getText().toString(); String sala = edtSala.getText().toString();
+                    String duracion = edtDuracion.getText().toString(); String sala = edtSala.getText().toString(); String trailer = edtTrailer.getText().toString();
 
                     //comprueba que se hayan rellenado todos los campos
                     if (titulo.equals(null)||year.equals(null)||descripcion.equals(null)||duracion.equals(null)||sala.equals("")){
@@ -46,7 +47,7 @@ public class FragmentCrearPelicula extends AppCompatDialogFragment {
                         error.show();
                     }else{
                         //metodo que crea la pelicula
-                        Conexion.crearPelicula(titulo,Integer.parseInt(year),descripcion,Integer.parseInt(duracion),sala);
+                        Conexion.crearPelicula(titulo,Integer.parseInt(year),descripcion,Integer.parseInt(duracion),sala,trailer);
                         dialog.dismiss();
                     }
                 } catch (Exception e) {

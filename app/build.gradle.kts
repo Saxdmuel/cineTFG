@@ -36,7 +36,7 @@ android {
     }
 }
 dependencies {
-
+    implementation ("com.pierfrancescosoffritti.androidyoutubeplayer:core:12.1.0")
     implementation ("com.sun.mail:android-mail:1.6.7")
 
     implementation ("com.squareup.retrofit2:converter-gson:2.4.0")

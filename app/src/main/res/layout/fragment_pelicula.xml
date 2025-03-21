@@ -42,7 +42,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/tvHora3"
             app:layout_constraintVertical_bias="0.91"
-            app:layout_constraintWidth_percent="0.3"/>
+            app:layout_constraintWidth_percent="0.3" />
 
         <ImageView
             android:id="@+id/IWPeliculaCartel"
@@ -71,7 +71,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/TVpeliculaTitulo"
             app:layout_constraintVertical_bias="0.04"
-            app:layout_constraintWidth_percent="0.2"/>
+            app:layout_constraintWidth_percent="0.2" />
 
         <TextView
             android:id="@+id/TVdescripcion"
@@ -107,15 +107,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/TVanio"
             app:layout_constraintVertical_bias="0.059"
-            app:layout_constraintWidth_percent="0.2"/>
+            app:layout_constraintWidth_percent="0.2" />
 
         <TextView
             android:id="@+id/TVInicio"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:autoSizeTextType="uniform"
             android:text="inicio"
             android:textColor="#B8860B"
-            android:autoSizeTextType="uniform"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.072"
@@ -128,9 +128,9 @@
             android:id="@+id/TVsnacks"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:autoSizeTextType="uniform"
             android:text="Snacks"
             android:textColor="#B8860B"
-            android:autoSizeTextType="uniform"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.888"
@@ -146,10 +146,10 @@
             android:contentDescription="scroll"
             app:layout_constraintBottom_toTopOf="@+id/btnComprar"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/TVduracion"
-            app:layout_constraintWidth_percent="0.8"
-            app:layout_constraintHeight_percent="0.2">
+            app:layout_constraintWidth_percent="0.8">
 
             <LinearLayout
                 android:id="@+id/Hly"
@@ -158,8 +158,7 @@
                 android:divider="@drawable/separador_fecha"
                 android:dividerPadding="20px"
                 android:orientation="horizontal"
-                android:showDividers="middle"
-                />
+                android:showDividers="middle" />
         </HorizontalScrollView>
 
         <TextView
@@ -203,6 +202,16 @@
             app:layout_constraintTop_toBottomOf="@id/horizontalScroll"
             app:layout_constraintVertical_bias="0.35"
             app:layout_constraintWidth_percent="0.2" />
+
+        <Button
+            android:id="@+id/btnTrailer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="72dp"
+            android:layout_marginEnd="140dp"
+            android:text="trailer"
+            app:layout_constraintEnd_toStartOf="@+id/btnComprar"
+            app:layout_constraintTop_toBottomOf="@+id/tvHora1" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

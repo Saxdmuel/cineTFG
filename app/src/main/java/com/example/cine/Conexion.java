@@ -47,9 +47,9 @@ public class Conexion{
     }
 
     //metodo que añade peliculas a la BBDD
-    public static void crearPelicula(String titulo, Integer year, String descripcion, Integer duracion, String sala) {
-        String sql = "INSERT INTO peliculas(nombrepelicula,year,descripcion,duracion,sala) "
-                + "VALUES(?,?,?,?,?);";
+    public static void crearPelicula(String titulo, Integer year, String descripcion, Integer duracion, String sala, String trailer) {
+        String sql = "INSERT INTO peliculas(nombrepelicula,year,descripcion,duracion,sala,trailer) "
+                + "VALUES(?,?,?,?,?,?);";
         try {
             //creo el PreparedStatement y le añado los parametros
             PreparedStatement ps = conexion.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -58,6 +58,7 @@ public class Conexion{
             ps.setString(3, descripcion);
             ps.setInt(4,duracion);
             ps.setString(5,sala);
+            ps.setString(6,trailer);
             ps.executeUpdate(); //metodo que ejecuta el sql uso executeUpdate porque se que la consulta es INSERT
             ps.close();
         } catch (SQLException e) {

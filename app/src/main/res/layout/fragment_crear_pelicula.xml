@@ -12,8 +12,8 @@
 
         <LinearLayout
             android:id="@+id/linearLayout"
-            android:layout_width="383dp"
-            android:layout_height="408dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginStart="27dp"
             android:layout_marginTop="44dp"
             android:layout_marginEnd="27dp"
@@ -65,6 +65,16 @@
                 android:ems="10"
                 android:hint="Sala"
                 android:inputType="text" />
+
+            <EditText
+                android:id="@+id/edtTrailer"
+                android:layout_width="match_parent"
+                android:layout_height="78dp"
+                android:ems="10"
+                android:hint="Trailer"
+                android:inputType="text"
+                 />
+
         </LinearLayout>
 
         <TextView

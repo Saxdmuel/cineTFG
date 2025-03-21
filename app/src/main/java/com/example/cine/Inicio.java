@@ -33,7 +33,7 @@ public class Inicio extends Fragment{
     RecyclerView.Adapter rva;
     RecyclerView.LayoutManager lm;
     ImageView imagenD;
-
+    List<String> trailers = new ArrayList<>();
     List<String> nombres = new ArrayList<>();
     List<String> anios = new ArrayList<>();
     List<String> descripciones = new ArrayList<>();
@@ -119,6 +119,7 @@ public class Inicio extends Fragment{
                 descripciones.add(rs.getString("descripcion"));
                 duraciones.add(rs.getString("duracion"));
                 salas.add(rs.getString("sala"));
+                trailers.add(rs.getString("trailer"));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -200,6 +201,7 @@ public class Inicio extends Fragment{
         bundle.putString("descripcion",descripciones.get(id));
         bundle.putString("duracion",duraciones.get(id));
         bundle.putString("sala",salas.get(id));
+        bundle.putString("trailer",trailers.get(id));
         getParentFragmentManager().setFragmentResult("keyPelicula",bundle); //le paso el bundle al siguiente frgament
 
         Navigation.findNavController(getView()).navigate(R.id.pelicula); //voy a la pelicula

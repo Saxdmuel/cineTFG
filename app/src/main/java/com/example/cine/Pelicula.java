@@ -1,7 +1,5 @@
 package com.example.cine;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -27,7 +25,6 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.format.TextStyle;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -52,6 +49,7 @@ public class Pelicula extends Fragment {
     String duracion;
     String descripcion;
     String cartel;
+    String trailer;
     public Pelicula() {
         // Required empty public constructor
     }
@@ -101,6 +99,9 @@ public class Pelicula extends Fragment {
                 tvDescripcion.setText(descripcion);
 
                 sala = bundle.getString("sala");
+
+                trailer = bundle.getString("trailer");
+
             }
         });
 
@@ -218,6 +219,15 @@ public class Pelicula extends Fragment {
             @Override
             public void onClick(View v) {
                 Navigation.findNavController(view).navigate(R.id.snack);
+            }
+        });
+
+        Button btnTrailer = view.findViewById(R.id.btnTrailer);
+        btnTrailer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTrailer fTrailer = new FragmentTrailer(trailer);
+                fTrailer.show(getParentFragmentManager(),FragmentTrailer.TAG);
             }
         });
     }
