@@ -11,10 +11,12 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentResultListener;
 import androidx.navigation.Navigation;
 
+import android.transition.TransitionManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -75,6 +77,11 @@ public class Pelicula extends Fragment {
         TextView tvDuracion = view.findViewById(R.id.TVduracion);
         TextView tvDescripcion = view.findViewById(R.id.TVdescripcion);
         ImageView ivCartel = view.findViewById(R.id.IWPeliculaCartel);
+        Button btnReparto = view.findViewById(R.id.btnReparto);
+        LinearLayout lyExtensible = view.findViewById(R.id.lyExtensible);
+        ImageButton btnCrearActor = view.findViewById(R.id.btnCrearActor);
+        ImageButton btnBorrarActor = view.findViewById(R.id.btnBorrarActor);
+
 
         //leo el bundle
         getParentFragmentManager().setFragmentResultListener("keyPelicula", this, new FragmentResultListener() {
@@ -166,6 +173,39 @@ public class Pelicula extends Fragment {
                     }
                 }
             });
+
+            // Configuramos el botón para mostrar/ocultar actores con animación
+            btnReparto.setOnClickListener(v -> {
+                TransitionManager.beginDelayedTransition(lyExtensible);// Aplica animación de transición
+                if (lyExtensible.getVisibility() == View.VISIBLE) {
+                    lyExtensible.setVisibility(View.GONE);  // Ocultar si está visible
+                } else {
+                    lyExtensible.setVisibility(View.VISIBLE); // Mostrar si está oculto
+                }
+            });
+            btnCrearActor.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Bundle bundle = new Bundle();
+                    bundle.putString("titulo", tvTitulo.getText().toString());
+
+                    FragmentCrearActor dialogFragment = new FragmentCrearActor();
+                    dialogFragment.setArguments(bundle);
+                    dialogFragment.show(getParentFragmentManager(), FragmentCrearActor.TAG);
+                }
+            });
+            btnBorrarActor.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Bundle bundle = new Bundle();
+                    bundle.putString("titulo", tvTitulo.getText().toString());
+
+                    FragmentBorrarActor dialogFragment = new FragmentBorrarActor();
+                    dialogFragment.setArguments(bundle);
+                    dialogFragment.show(getParentFragmentManager(), FragmentBorrarActor.TAG);
+                }
+            });
+
         }
         //relleno los horarios
 
@@ -230,6 +270,8 @@ public class Pelicula extends Fragment {
                 fTrailer.show(getParentFragmentManager(),FragmentTrailer.TAG);
             }
         });
+
+
     }
     //metodo que cambia de color el horario seleccionado
     public void horarioClick(int id,View v){

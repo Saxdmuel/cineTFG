@@ -25,13 +25,13 @@ public class FragmentCrearPelicula extends AppCompatDialogFragment {
         View v = LayoutInflater.from(getContext()).inflate(R.layout.fragment_crear_pelicula, null);
         Dialog dialog = new MaterialAlertDialogBuilder(getContext()).setView(v).create();
 
-        EditText edtTitulo = v.findViewById(R.id.edtTitulo);
+        EditText edtTitulo = v.findViewById(R.id.edtNombreActor);
         EditText edtYear = v.findViewById(R.id.edtYear);
         EditText edtDescripcion = v.findViewById(R.id.edtDescripción);
         EditText edtDuracion = v.findViewById(R.id.edtDuración);
         EditText edtSala = v.findViewById(R.id.edtSala);
         EditText edtTrailer = v.findViewById(R.id.edtTrailer);
-        Button botonAceptar = v.findViewById(R.id.btnAceptarPelicula);
+        Button botonAceptar = v.findViewById(R.id.btnCrearActorF);
 
         //boton que crea la peluicula
         botonAceptar.setOnClickListener(new View.OnClickListener() {

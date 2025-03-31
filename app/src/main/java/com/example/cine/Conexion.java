@@ -1,7 +1,5 @@
 package com.example.cine;
 
-import static java.security.AccessController.getContext;
-
 import java.sql.Array;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -10,17 +8,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-import java.util.concurrent.Semaphore;
 
 import android.content.Context;
-import android.database.Cursor;
 import android.os.AsyncTask;
-import android.os.StrictMode;
-import android.text.Editable;
-import android.view.inputmethod.InputConnection;
 import android.widget.Toast;
 
 public class Conexion{
@@ -171,6 +163,38 @@ public class Conexion{
             throw new RuntimeException(e);
         }
         return email;
+    }
+
+    public static void crearActor(String nombre, String titulo) {
+        String sql = "INSERT INTO actores(nombre_actor,nombrepelicula) "
+                + "VALUES(?,?);";
+        try {
+            //creo el PreparedStatement y le añado los parametros
+            PreparedStatement ps = conexion.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            ps.setString(1, nombre);
+            ps.setString(2, titulo);
+            ps.executeUpdate();//ejecuto el sql
+            ps.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    public static void borrarActor(Context context,String nombre, String titulo) {
+        String sql = "delete from actores where nombre_actor = ? AND nombrepelicula = ?";
+        try {
+            //creo el PreparedStatement y le añado los parametros
+            PreparedStatement ps = conexion.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            ps.setString(1, nombre);
+            ps.setString(2, titulo);
+            int filasActualizadas = ps.executeUpdate();//ejecuto el sql
+
+            if (filasActualizadas <= 0) { // Si no se eliminó ninguna fila
+                Toast.makeText(context, "No existe el actor con esos datos", Toast.LENGTH_LONG).show();
+            }
+            ps.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     //metodo que conecta con la BBDD

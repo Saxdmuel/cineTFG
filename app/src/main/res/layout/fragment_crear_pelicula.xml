@@ -27,7 +27,7 @@
             app:layout_constraintVertical_bias="0.145">
 
             <EditText
-                android:id="@+id/edtTitulo"
+                android:id="@+id/edtNombreActor"
                 android:layout_width="match_parent"
                 android:layout_height="78dp"
                 android:ems="10"
@@ -88,7 +88,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/btnAceptarPelicula"
+            android:id="@+id/btnCrearActorF"
             android:layout_width="119dp"
             android:layout_height="52dp"
             android:text="Aceptar"

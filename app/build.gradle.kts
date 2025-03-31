@@ -38,7 +38,7 @@ android {
 dependencies {
     implementation ("com.pierfrancescosoffritti.androidyoutubeplayer:core:12.1.0")
     implementation ("com.sun.mail:android-mail:1.6.7")
-
+    implementation ("androidx.transition:transition:1.4.1") //extensible actores
     implementation ("com.squareup.retrofit2:converter-gson:2.4.0")
     implementation ("com.squareup.retrofit2:retrofit:2.4.0")       // abren el uso de Apis
     implementation ("com.squareup.picasso:picasso:2.71828") //sirve para caragr imagenes de internet
