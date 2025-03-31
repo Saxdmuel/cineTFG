@@ -165,7 +165,7 @@ public class Conexion{
         return email;
     }
 
-    public static void crearActor(String nombre, String titulo) {
+    public static void crearActor(Context context, String nombre, String titulo) {
         String sql = "INSERT INTO actores(nombre_actor,nombrepelicula) "
                 + "VALUES(?,?);";
         try {
@@ -173,7 +173,13 @@ public class Conexion{
             PreparedStatement ps = conexion.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, nombre);
             ps.setString(2, titulo);
-            ps.executeUpdate();//ejecuto el sql
+            int filasActualizadas = ps.executeUpdate();//ejecuto el sql
+
+            if (filasActualizadas > 0) { // Si no se eliminó ninguna fila
+                Toast.makeText(context, "Actor añadido con exito", Toast.LENGTH_LONG).show();
+            }else{
+                Toast.makeText(context, "Error al añadir al actor", Toast.LENGTH_LONG).show();
+            }
             ps.close();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -190,6 +196,8 @@ public class Conexion{
 
             if (filasActualizadas <= 0) { // Si no se eliminó ninguna fila
                 Toast.makeText(context, "No existe el actor con esos datos", Toast.LENGTH_LONG).show();
+            }else{
+                Toast.makeText(context, "Borrado con exito", Toast.LENGTH_LONG).show();
             }
             ps.close();
         } catch (SQLException e) {

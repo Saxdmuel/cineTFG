@@ -29,7 +29,8 @@ public class FragmentCrearActor extends AppCompatDialogFragment {
             @Override
             public void onClick(View v) {
                 System.out.println(edtNombreActor.getText().toString()+"   "+titulo);
-                Conexion.crearActor(edtNombreActor.getText().toString(),titulo);
+                Conexion.crearActor(getContext(),edtNombreActor.getText().toString(),titulo);
+                dialog.dismiss();
             }
         });
 

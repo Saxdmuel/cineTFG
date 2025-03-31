@@ -2,26 +2,29 @@ package com.example.cine;
 
 import android.app.Dialog;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatDialogFragment;
+import androidx.fragment.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
-
-import androidx.appcompat.app.AppCompatDialogFragment;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 
 public class FragmentBorrarActor extends AppCompatDialogFragment {
 
     public static final String TAG = FragmentBorrarActor.class.getSimpleName();
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        View v = LayoutInflater.from(getContext()).inflate(R.layout.fragment_crear_actor, null);
+        View v = LayoutInflater.from(getContext()).inflate(R.layout.fragment_borrar_actor, null);
         Dialog dialog = new MaterialAlertDialogBuilder(getContext()).setView(v).create();
 
-        EditText edtNombreActor = v.findViewById(R.id.edtNombreActor);
+        EditText edtNombreActor = v.findViewById(R.id.edtNombreActorBorrar);
         Button btnBorrarActor = v.findViewById(R.id.btnBorrarActorF);
 
         Bundle bundle = getArguments();
@@ -31,6 +34,7 @@ public class FragmentBorrarActor extends AppCompatDialogFragment {
             public void onClick(View v) {
                 System.out.println(edtNombreActor.getText().toString()+"   "+titulo);
                 Conexion.borrarActor(getContext(),edtNombreActor.getText().toString(),titulo);
+                dialog.dismiss();
             }
         });
 
@@ -58,5 +62,4 @@ public class FragmentBorrarActor extends AppCompatDialogFragment {
             dialog.getWindow().setBackgroundDrawableResource(android.R.color.white);
         }
     }
-
 }
