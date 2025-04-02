@@ -245,14 +245,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:src="@android:drawable/btn_minus" />
+                android:src="@android:drawable/btn_minus"
+                android:visibility="gone" />
 
             <ImageButton
                 android:id="@+id/btnCrearActor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:src="@android:drawable/btn_plus" />
+                android:src="@android:drawable/btn_plus"
+                android:visibility="gone" />
 
         </LinearLayout>
 

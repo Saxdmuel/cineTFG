@@ -41,8 +41,12 @@ public class Pelicula extends Fragment {
     List<Date> horas = new ArrayList<>();
     int IDHora;
     int IDdia = 1;
+
     TextView dia;
     List<Date> dias = new ArrayList<>();
+
+    List<String> actores = new ArrayList<>();
+    TextView actor;
     String sala;
     String horario;
     Pelicula pelicula;
@@ -109,6 +113,18 @@ public class Pelicula extends Fragment {
 
                 trailer = bundle.getString("trailer");
 
+
+                //relenar los actores
+                actores = Conexion.buscarActores(nombrePelicula);
+                LinearLayout lyActores = view.findViewById(R.id.lyExtensible);
+
+                    for ( int i=0; i<actores.size();i++){
+                        actor = new TextView(getContext());
+                        actor.setText(actores.get(i));
+                        lyActores.addView(actor,0);
+                    }
+
+
             }
         });
 
@@ -174,15 +190,25 @@ public class Pelicula extends Fragment {
                 }
             });
 
-            // Configuramos el botón para mostrar/ocultar actores con animación
-            btnReparto.setOnClickListener(v -> {
-                TransitionManager.beginDelayedTransition(lyExtensible);// Aplica animación de transición
-                if (lyExtensible.getVisibility() == View.VISIBLE) {
-                    lyExtensible.setVisibility(View.GONE);  // Ocultar si está visible
-                } else {
-                    lyExtensible.setVisibility(View.VISIBLE); // Mostrar si está oculto
-                }
-            });
+        }
+        SQLite lite = new SQLite(getContext());
+        String usuario = lite.usuarioConectado(getContext());//metodo que devuelve el usuario conectado
+        String permisos = Conexion.buscarPermisos(usuario);
+
+
+        // Configuramos el botón para mostrar/ocultar actores con animación
+        btnReparto.setOnClickListener(v -> {
+            TransitionManager.beginDelayedTransition(lyExtensible);// Aplica animación de transición
+            if (lyExtensible.getVisibility() == View.VISIBLE) {
+                lyExtensible.setVisibility(View.GONE);  // Ocultar si está visible
+            } else {
+                lyExtensible.setVisibility(View.VISIBLE); // Mostrar si está oculto
+            }
+        });
+
+        if(permisos.equals("administrador")){
+            btnCrearActor.setVisibility(View.VISIBLE);
+            btnBorrarActor.setVisibility(View.VISIBLE);
             btnCrearActor.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -205,8 +231,8 @@ public class Pelicula extends Fragment {
                     dialogFragment.show(getParentFragmentManager(), FragmentBorrarActor.TAG);
                 }
             });
-
         }
+
         //relleno los horarios
 
         TextView hora1 =  view.findViewById(R.id.tvHora1);

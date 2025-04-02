@@ -16,6 +16,7 @@ import android.os.AsyncTask;
 import android.widget.Toast;
 
 public class Conexion{
+    static ResultSet rsActores;
     static ResultSet rsHora;
     String hora_id;
     static ResultSet rsHorarios;
@@ -204,6 +205,34 @@ public class Conexion{
             System.out.println(e.getMessage());
         }
     }
+
+    public static List<String> buscarActores(String nombrePelicula) {
+        String sql = "select nombre_actor from actores where nombrepelicula = ?";
+        List <String> listaActores = new ArrayList<>();
+        Thread hiloActores = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    PreparedStatement ps = conexion.prepareStatement(sql);
+                    ps.setString(1,nombrePelicula);
+                    rsActores = ps.executeQuery();
+                    while (rsActores.next()){
+                        listaActores.add(rsActores.getString("nombre_actor"));
+                    }
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        });
+        hiloActores.start();
+        try {
+            hiloActores.join();
+        } catch (InterruptedException e) {
+            System.out.println(e.getMessage());
+        }
+        return listaActores;
+    }
+
 
     //metodo que conecta con la BBDD
     public  void conectarSql() {
