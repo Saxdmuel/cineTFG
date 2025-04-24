@@ -25,13 +25,13 @@ public class Conexion{
     static ResultSet rsPeliculas;
     static ResultSet rsSnacks;
     static ResultSet rsSalas;
-    private final String ip = "10.0.2.2";
+    private final String ip = "45.6.48.124";
 
     private static Connection conexion;
     private final String baseDatos = "cine";
-    private final int puerto = 5432;
+    private final int puerto = 5433;
     private final String usuario = "postgres";
-    private final String pass = "Palomares.24";
+    private final String pass = "saxdmuel";
     private String url = "jdbc:postgresql://%s:%d/%s";
     private static boolean estadoConexion = false;
 
@@ -245,6 +245,7 @@ public class Conexion{
                     conexion = DriverManager.getConnection(url, usuario, pass); //creo la conexion
                     estadoConexion = true;  //controlo si la conexion ha sido exitosa
                 } catch (Exception e) {
+                    System.out.println(e.getMessage());
                     estadoConexion = false;//controlo si ha habido algun error en la conexion
                     e.printStackTrace();
                 }

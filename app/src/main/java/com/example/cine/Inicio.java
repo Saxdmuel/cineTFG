@@ -60,7 +60,11 @@ public class Inicio extends Fragment{
 
         //creamos un objeto comision para establecer conexion con la base de datos
         conexion= new Conexion();
-        conexion.conectarSql();
+        try {
+            conexion.conectarSql(); //concecto con la base de datos
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
         Boolean centinela = true;
         while(centinela){
             if(conexion.getEstadoConexion()){

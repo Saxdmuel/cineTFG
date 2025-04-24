@@ -28,7 +28,12 @@ public class Login extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         conexion = new Conexion();
-        conexion.conectarSql(); //concecto con la base de datos
+        try {
+            conexion.conectarSql(); //concecto con la base de datos
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
         Boolean centinela = true;
         while (centinela) { //espero a estar conectado
             if (conexion.getEstadoConexion()) {
