@@ -41,7 +41,7 @@
             app:layout_constraintHorizontal_bias="0.947"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/tvHora3"
-            app:layout_constraintVertical_bias="0.91"
+            app:layout_constraintVertical_bias="0.858"
             app:layout_constraintWidth_percent="0.3" />
 
         <ImageView
@@ -205,12 +205,14 @@
             app:layout_constraintVertical_bias="0.35"
             app:layout_constraintWidth_percent="0.2" />
 
+        <!-- Contenedor de los actores -->
+
         <Button
             android:id="@+id/btnTrailer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="72dp"
-            android:layout_marginEnd="140dp"
+            android:layout_marginTop="140dp"
+            android:layout_marginEnd="152dp"
             android:text="trailer"
             app:layout_constraintEnd_toStartOf="@+id/btnComprar"
             app:layout_constraintTop_toBottomOf="@+id/tvHora1" />
@@ -220,13 +222,11 @@
             android:id="@+id/btnReparto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="292dp"
-            android:layout_marginEnd="40dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="48dp"
             android:text="Reparto"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <!-- Contenedor de los actores -->
+            app:layout_constraintTop_toBottomOf="@+id/TVdescripcion" />
 
         <LinearLayout
             android:id="@+id/lyExtensible"

@@ -106,6 +106,8 @@ public class Sala extends Fragment {
                                 Conexion.cambiarAsientos(sala,horario,dia,arrayAsientos); //metodo que cambia los asientos
                                 SQLite lite = new SQLite(getContext());
                                 lite.insertarEntradasLite(getContext(),titulo,asientosCambiar.size());
+                                Navigation.findNavController(view).navigate(R.id.inicio); //ir a inicio
+                                Toast.makeText(getContext(), "entradas a añadidas a carrito",Toast.LENGTH_LONG);
                             }
                         }
                     }

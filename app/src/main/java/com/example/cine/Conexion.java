@@ -18,6 +18,7 @@ import android.widget.Toast;
 public class Conexion{
     static ResultSet rsActores;
     static ResultSet rsHora;
+
     String hora_id;
     static ResultSet rsHorarios;
     static ResultSet rsDias;
@@ -61,10 +62,12 @@ public class Conexion{
     }
     //metodo que borra peliculas de la BBDD
     public static void borrarPelicula(String titulo, int year, Context context) {
-        String sql = "delete from peliculas where nombrepelicula = '"+titulo+"' and year = "+year;
+        String sql = "delete from peliculas where nombrepelicula = ? and year = ?";
         try{
             //creo el PreparedStatement
             PreparedStatement ps = conexion.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            ps.setString(1,titulo);
+            ps.setInt(2,year);
             int filasActualizadas= ps.executeUpdate(); //ejecuto el sql y almaceno la cantidad filas eliminadas
             if (filasActualizadas <= 0){ //si las filas actualizadas son 0 es error
                 //creo el error y lo muestro
@@ -78,10 +81,11 @@ public class Conexion{
     }
     //metodo que borra snacks de la BBDD
     public static void borrarSnack(String nombre, Context context) {
-        String sql = "delete from snack_bar where nombresnack = '"+nombre+"'";
+        String sql = "delete from snack_bar where nombresnack = ? ";
         try{
             //creo el PreparedStatement
             PreparedStatement ps = conexion.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            ps.setString(1,nombre);
             int filasActualizadas = ps.executeUpdate(); //ejecuto el sql y almaceno la cantidad filas eliminadas
             if (filasActualizadas <= 0){//si las filas actualizadas son 0 es error
                 //creo el error y lo muestro
@@ -498,18 +502,21 @@ public class Conexion{
             @Override
             public void run() {
                 try{
-                    String sql = "select nombreusuario from usuarios where nombreusuario = '"+usuario+"'";
-                    Statement st = conexion.createStatement(); // Creamos un objeto Statement para ejecutar la consulta SQL
-                    ResultSet rs= st.executeQuery(sql);//ejecutamos la sentencia y la guardo
+                    String sql = "select nombreusuario from usuarios where nombreusuario = ?";
+                    PreparedStatement  pst = conexion.prepareStatement(sql);
+                    pst.setString(1, usuario);
+                    ResultSet rs= pst.executeQuery();//ejecutamos la sentencia y la guardo
                     if (!rs.isBeforeFirst()){
                         centinelaUsuario[0] = false;
                     } else {
                         centinelaUsuario[0] = true;
                     }
+                    pst.close();
                 } catch (SQLException e) {
                     System.out.println(e.getMessage());
                 }
             }
+
         });
         try {
             hiloUsuario.start();
@@ -517,7 +524,7 @@ public class Conexion{
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        System.out.println(centinelaUsuario[0]);
+        System.out.println("usuario  "+centinelaUsuario[0]);
         return centinelaUsuario[0];
     }
     //metodo que comprueba si la contraseña es correcta
@@ -530,9 +537,11 @@ public class Conexion{
             public void run() {
                 try{
                     System.out.println("CONTRASEÑA");
-                    String sql = "select password from usuarios where nombreusuario = '"+usuario+"' and password = '"+pass+"'";
-                    Statement st = conexion.createStatement(); // Creamos un objeto Statement para ejecutar la consulta SQL
-                    ResultSet rs= st.executeQuery(sql); //ejecutamos la sentencia y la guardo
+                    String sql = "select password from usuarios where nombreusuario = ? and password = ?";
+                    PreparedStatement  pst = conexion.prepareStatement(sql); // Creamos un objeto PreparedStatement para ejecutar la consulta SQL
+                    pst.setString(1,usuario);
+                    pst.setString(2,pass);
+                    ResultSet rs= pst.executeQuery(); //ejecutamos la sentencia y la guardo
                     // Verificamos si el ResultSet contiene filas. Si no hay filas, significa que no existe
                     // un usuario con el nombre de usuario y la contraseña proporcionados.
                     if (!rs.isBeforeFirst()){
@@ -540,6 +549,7 @@ public class Conexion{
                     } else {
                         centinelaPass[0] = true; // Credenciales correctas
                     }
+                    pst.close();
                 } catch (SQLException e) {
                     System.out.println(e.getMessage());
                 }
@@ -551,7 +561,7 @@ public class Conexion{
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        System.out.println(centinelaPass);
+        System.out.println("pass  "+centinelaPass[0]);
         return centinelaPass[0];
     }
     //metodo para saber los permisos del usuario
