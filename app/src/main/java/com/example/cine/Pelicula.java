@@ -121,6 +121,7 @@ public class Pelicula extends Fragment {
                     for ( int i=0; i<actores.size();i++){
                         actor = new TextView(getContext());
                         actor.setText(actores.get(i));
+                        actor.setTextColor(Color.WHITE);
                         lyActores.addView(actor,0);
                     }
 
