@@ -1,5 +1,6 @@
 package com.example.cine;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -49,6 +50,7 @@ public class carrito extends Fragment {
             if (textView.getParent() != null) {
                 ((ViewGroup) textView.getParent()).removeView(textView);
             }
+            textView.setTextColor(Color.WHITE);
             textView.setText(listaArticulos.get(i));
             ly.addView(textView); //añado los textView al layout
         }
@@ -56,6 +58,7 @@ public class carrito extends Fragment {
         TextView tvSnacks = view.findViewById(R.id.txtSnackCarrito);
         TextView tvSumatorio = view.findViewById(R.id.tvSumatorio);
         String total =lite.sumarPrecios(getContext())+"€"; //metodo que suma los precios de los articulos comprados
+        tvSumatorio.setTextColor(Color.WHITE);
         tvSumatorio.setText(total); //muestra el total
 
 
@@ -80,6 +83,7 @@ public class carrito extends Fragment {
                         EnviarCorreo.enviarCorreo("salmeronCine@gmail.com","kpzt hlfg isyf wwns",
                                 destinatario,"cine",articulos);
                         Navigation.findNavController(view).navigate(R.id.inicio);
+                        lite.vaciarCarrito(getContext());
                     }catch (Exception e){
                         System.out.println(e.getMessage());
                     }

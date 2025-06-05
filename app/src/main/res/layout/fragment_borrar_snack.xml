@@ -12,8 +12,8 @@
 
         <EditText
             android:id="@+id/edtNSBorrar"
-            android:layout_width="396dp"
-            android:layout_height="82dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Nombre"
             android:inputType="text"
