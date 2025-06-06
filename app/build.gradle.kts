@@ -42,7 +42,6 @@ dependencies {
     implementation ("com.squareup.retrofit2:converter-gson:2.4.0")
     implementation ("com.squareup.retrofit2:retrofit:2.4.0")       // abren el uso de Apis
     implementation ("com.squareup.picasso:picasso:2.71828") //sirve para caragr imagenes de internet
-
     implementation ("androidx.navigation:navigation-fragment:2.5.3")
     implementation ("androidx.navigation:navigation-ui:2.5.3")
     implementation("androidx.appcompat:appcompat:1.6.1")

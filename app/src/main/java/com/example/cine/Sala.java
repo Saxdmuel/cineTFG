@@ -77,9 +77,7 @@ public class Sala extends Fragment {
                 dia= bundle.getString("dia");
                 titulo= bundle.getString("titulo");
                 Conexion cn = new Conexion();
-                System.out.println(sala);
-                System.out.println(horario);
-                System.out.println(dia);
+                System.out.println("sala "+sala+" horario "+horario+" dia "+dia);
                 arrayAsientos = cn.buscarAsientos(sala,horario,dia); //metodo que busca los asientos de la sala para un dia y unn horario
                 System.out.println("sala "+arrayAsientos[0]);
 

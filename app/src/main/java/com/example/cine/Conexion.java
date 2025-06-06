@@ -277,7 +277,7 @@ public class Conexion{
             throw new RuntimeException(e);
         }
     }
-    //asiento que busca las peliculas disponibles
+    //metodo que busca las peliculas disponibles
     public static ResultSet verPeliculasConexion() {
         // Creamos un hilo para ejecutar la consulta en segundo plano.
         // Esto se hace porque, de lo contrario, el `ResultSet` podría no completarse correctamente antes de llamarlo
@@ -317,7 +317,7 @@ public class Conexion{
                         System.out.println("hora id   "+hora_id);
                     }
                     //ejecuto la consulta y la guardo
-                    rsSalas = st.executeQuery("select * from salas where nombre_sala='"+sala+"' and horario_id = '"+hora_id+"'");
+                    rsSalas = st.executeQuery("select * from salas where  horario_id = '"+hora_id+"'");
                     if(rsSalas.next()){
                         System.out.println(rsSalas.getString("id"));
                     }
@@ -334,6 +334,7 @@ public class Conexion{
         } catch (Exception e) {
             e.printStackTrace();
         }
+        System.out.println(arrayAsientos[0]+""+arrayAsientos[1]+""+arrayAsientos[2]);
         return arrayAsientos;
     }
     //metodo que busca los snakcs
@@ -414,12 +415,11 @@ public class Conexion{
                     }
 
                     Array array = conexion.createArrayOf("BOOLEAN",arrayAsientos);
-                    String sql = "UPDATE salas SET asientos = ? WHERE nombre_sala = ? and horario_id = ?";
+                    String sql = "UPDATE salas SET asientos = ? WHERE  horario_id = ?";
 
                     PreparedStatement pst = conexion.prepareStatement(sql); //Creamos un objeto PreparedStatement para ejecutar la consulta SQL
                     pst.setArray(1,conexion.createArrayOf("BOOLEAN",arrayAsientos));
-                    pst.setString(2,nombre_sala);
-                    pst.setInt(3,hora_id);
+                    pst.setInt(2,hora_id);
                     pst.executeUpdate(); //ejecuto el SQL
 
                 } catch (SQLException e) {
