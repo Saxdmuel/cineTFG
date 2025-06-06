@@ -465,7 +465,7 @@ public class Conexion{
         return dias;
     }
     //metodo que busca los horarios de una sala
-    public static List<String> buscarHorarios(int diaID) {
+    public static List<String> buscarHorarios(int diaID, String sala) {
         List<String> listaHorarios = new ArrayList<>();
         // Creamos un hilo para ejecutar la consulta en segundo plano.
         // Esto se hace porque, de lo contrario, el `ResultSet` podría no completarse correctamente antes de llamarlo
@@ -473,7 +473,7 @@ public class Conexion{
             @Override
             public void run() {
                 try {
-                    String sql = "select hora from horarios where dia_id = "+diaID+" order by hora";
+                    String sql = "select hora from horarios where dia_id = "+diaID+" and sala = '"+sala+"' order by hora";
                     Statement st = conexion.createStatement();// Creamos un objeto Statement para ejecutar la consulta SQL
                     rsHorarios = st.executeQuery(sql);//ejecutamos la sentencia y la guardo
 

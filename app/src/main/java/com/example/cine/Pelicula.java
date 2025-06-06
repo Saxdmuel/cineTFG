@@ -113,6 +113,43 @@ public class Pelicula extends Fragment {
 
                 trailer = bundle.getString("trailer");
 
+//relleno los horarios
+
+                TextView hora1 =  view.findViewById(R.id.tvHora1);
+                TextView hora2 =  view.findViewById(R.id.tvHora2);
+                TextView hora3 =  view.findViewById(R.id.tvHora3);
+
+                List<String> listaHorarios = new ArrayList<>();
+                System.out.println(IDdia+""+sala);
+                listaHorarios = Conexion.buscarHorarios(IDdia,sala); //metodo que devuelve la lista de los horarios para un dia
+                System.out.println(listaHorarios.size());
+
+                hora1.setText(listaHorarios.get(0)); //pongo la 1ª hora
+                hora2.setText(listaHorarios.get(1)); //pongo la 2ª hora
+                hora3.setText(listaHorarios.get(2)); //porgo la 3ª hora
+
+                //botones para elegir el horario
+                hora1.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        horario = (String) hora1.getText();
+                        horarioClick(hora1.getId(),v); //metodo que cambia de color el horario seleccionado
+                    }
+                });
+                hora2.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        horario = (String) hora2.getText();
+                        horarioClick(hora2.getId(),v); //metodo que cambia de color el horario seleccionado
+                    }
+                });
+                hora3.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        horario = (String) hora3.getText();
+                        horarioClick(hora3.getId(),v); //metodo que cambia de color el horario seleccionado
+                    }
+                });
 
                 //relenar los actores
                 actores = Conexion.buscarActores(nombrePelicula);
@@ -234,42 +271,6 @@ public class Pelicula extends Fragment {
             });
         }
 
-        //relleno los horarios
-
-        TextView hora1 =  view.findViewById(R.id.tvHora1);
-        TextView hora2 =  view.findViewById(R.id.tvHora2);
-        TextView hora3 =  view.findViewById(R.id.tvHora3);
-
-        List<String> listaHorarios = new ArrayList<>();
-        listaHorarios = Conexion.buscarHorarios(IDdia); //metodo que devuelve la lista de los horarios para un dia
-        System.out.println(listaHorarios.size());
-
-        hora1.setText(listaHorarios.get(0)); //pongo la 1ª hora
-        hora2.setText(listaHorarios.get(1)); //pongo la 2ª hora
-        hora3.setText(listaHorarios.get(2)); //porgo la 3ª hora
-
-        //botones para elegir el horario
-        hora1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                horario = (String) hora1.getText();
-                horarioClick(hora1.getId(),v); //metodo que cambia de color el horario seleccionado
-            }
-        });
-        hora2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                horario = (String) hora2.getText();
-                horarioClick(hora2.getId(),v); //metodo que cambia de color el horario seleccionado
-            }
-        });
-        hora3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                horario = (String) hora3.getText();
-                horarioClick(hora3.getId(),v); //metodo que cambia de color el horario seleccionado
-            }
-        });
 
         //ir inicio
         TextView tvInicio = view.findViewById(R.id.TVInicio);
